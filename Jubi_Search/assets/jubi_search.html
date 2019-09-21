@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      type="text/javascript"
+      src="http://192.168.0.114:3125/testapi"
+    ></script>
+    <script
+      type="text/javascript"
+      src="http://192.168.0.114:3125/action"
+    ></script>
+    <script
+      type="image/jpeg"
+      src="http://192.168.0.114:3125/backgroundImage"
+    ></script>
+    <script
+      type="image/jpeg"
+      src="http://192.168.0.114:3125/nameImage"
+    ></script>
+    <script
+      type="image/jpeg"
+      src="http://192.168.0.114:3125/emailImage"
+    ></script>
+    <script
+      type="image/jpeg"
+      src="http://192.168.0.114:3125/contactImage"
+    ></script>
+    <link rel="stylesheet" href="http://192.168.0.114:3125/css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="selectbutton">
+        <button type="submit" class="click1">Sign In</button>
+        <button type="submit" class="click2">Search</button>
+      </div>
+
+      <div class="formContainer">
+        <div class="User">
+          <div class="name">
+            <!-- <p>Name</p> -->
+            <img src="http://192.168.0.114:3125/nameImage" class="name-img" />
+            <input
+              type="text"
+              placeholder="Enter name"
+              id="username"
+              name="uname"
+            />
+          </div>
+          <div class="email">
+            <!-- <p>Email</p> -->
+            <img src="http://192.168.0.114:3125/emailImage" class="email-img" />
+            <input
+              type="text"
+              placeholder="Enter email id"
+              id="emailadd"
+              name="email"
+            />
+          </div>
+          <div class="contact">
+            <!-- <p>Mobile</p> -->
+            <img
+              src="http://192.168.0.114:3125/contactImage"
+              class="contact-img"
+            />
+            <input
+              type="text"
+              placeholder="Enter number"
+              id="number"
+              name="mobile"
+            />
+          </div>
+        </div>
+
+        <div class="submitbutton">
+          <button type="submit" class="register_submit">Submit</button>
+        </div>
+      </div>
+
+      <div class="searchContainer">
+        <div class="searchfield">
+          <img src="http://192.168.0.114:3125/searchImage" class="name-img" />
+          <input
+            type="text"
+            placeholder="Please search here"
+            name="search"
+            id="search"
+            required
+          />
+        </div>
+
+        <div class="searchSubmit">
+          <button type="Submit" class="submit">Search</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tableContainer">
+      <table>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Email
+          </th>
+          <th>
+            Mobile
+          </th>
+        </tr>
+      </table>
+    </div>
+
+    <div id="register-success">
+      ThankYou you are Registered !
+    </div>
+  </body>
+</html>

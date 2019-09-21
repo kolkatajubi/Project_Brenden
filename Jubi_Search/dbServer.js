@@ -1,0 +1,66 @@
+var db = require("./assets/dbSearch");
+
+// Dependencies
+const express = require("express");
+const app = express();
+
+const bodyparser = require("body-parser");
+
+// Defining Path for URL Re-routes
+var path = require("path");
+
+// Body Parser will parse the HTML and return it in non-encoded format
+app.use(
+  bodyparser.urlencoded({
+    extended: false
+  })
+);
+
+// Body Parser will parse the HTML and return it in JSON format
+app.use(bodyparser.json());
+
+// Defining IP-Address and PORT number
+const ipaddress = "0.0.0.0";
+const port = 3125;
+
+// Listening to the IP-Address:PORT number
+app.listen(port, ipaddress, () =>
+  console.log(`Listening at ${ipaddress}:${port}...`)
+);
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/assets/jubi_search.html");
+});
+app.get("/backgroundImage", (req, res) => {
+  res.sendFile(__dirname + "/assets/css/w.jpg");
+});
+app.get("/nameImage", (req, res) => {
+  res.sendFile(__dirname + "/assets/css/name.jpg");
+});
+app.get("/emailImage", (req, res) => {
+  res.sendFile(__dirname + "/assets/css/email.jpg");
+});
+app.get("/contactImage", (req, res) => {
+  res.sendFile(__dirname + "/assets/css/contact.jpg");
+});
+app.get("/searchImage", (req, res) => {
+  res.sendFile(__dirname + "/assets/css/search.jpg");
+});
+app.get("/css", (req, res) => {
+  res.sendFile(__dirname + "/assets/css/styles.css");
+});
+app.get("/action", (req, res) => {
+  res.sendFile(__dirname + "/assets/action.js");
+});
+app.get("/testapi", (req, res) => {
+  res.sendFile(__dirname + "/assets/testapi.js");
+});
+
+app.post("/search", async (req, res) => {
+  console.log("search post called..");
+  res.json(await db.search(req.body.search));
+});
+
+app.post("/createUser", async (req, res) => {
+  console.log("user creation");
+  res.json(await db.createUser(req.body));
+});
