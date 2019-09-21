@@ -1,33 +1,43 @@
 $(document).ready(() => {
   $(".click1").click(() => {
+    $(".click1").css("background-color", "lightgrey");
+    $(".click2").css("background-color", "white");
     $(".formContainer").show();
     $(".searchContainer").hide();
+    hideError();
+    $("#register-success").hide();
   });
 
   $(".click2").click(() => {
+    $(".click2").css("background-color", "lightgrey");
+    $(".click1").css("background-color", "white");
     $(".formContainer").hide();
     $(".searchContainer").show();
+    hideError();
+    $("#register-success").hide();
   });
 
   $(".submitbutton").click(async () => {
+    // hideError();
     let username = $("#username").val();
     let email = $("#emailadd").val();
     let mobile = $("#number").val();
-    let signupStatus = await testapi.signup(
-      username.toLowerCase(),
-      email.toLowerCase(),
-      mobile
-    );
+
+    let signupStatus = await testapi.signup(username, email, mobile);
     if (signupStatus.status == "success") {
       $("#register-success").show();
-      $(".container").hide();
+      hideError();
+      // $(".container").hide();
     } else {
-      $("#register-error").show();
+      $("#errmsg").html(data);
+      $("#register-success").hide();
       $(".formContainer").hide();
     }
   });
 
   $(".searchSubmit").click(async () => {
+    $(".errmsg").hide();
+    $("#register-success").hide();
     $("table")
       .find("tr:gt(0)")
       .remove();
@@ -36,7 +46,7 @@ $(document).ready(() => {
     if (!text) {
       return;
     }
-    let resp = await testapi.search(text.toLowerCase());
+    let resp = await testapi.search(text);
     console.log(JSON.stringify(resp));
     if (resp.status == "success") {
       $(".tableContainer").show();
@@ -57,6 +67,8 @@ $(document).ready(() => {
             "</td></tr>"
         );
       }
+    } else {
+      showError(resp.data);
     }
   });
 });
