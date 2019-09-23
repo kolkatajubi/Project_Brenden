@@ -4,22 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-<<<<<<< Updated upstream
     <title>Jubi Search</title>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="http://192.168.0.105:3125/css" />
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="action.js"></script>
-    <script type="text/javascript" src="ajax_calls.js"></script>
-=======
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script
-      type="text/javascript"
-      src="http://192.168.0.105:3125/testapi"
-    ></script>
     <script
       type="text/javascript"
       src="http://192.168.0.105:3125/action"
+    ></script>
+    <script
+      type="text/javascript"
+      src="http://192.168.0.105:3125/ajax_calls"
     ></script>
     <script
       type="image/jpeg"
@@ -31,14 +25,16 @@
     ></script>
     <script
       type="image/jpeg"
+      src="http://192.168.0.105:3125/contactImage"
+    ></script>
+    <script
+      type="image/jpeg"
       src="http://192.168.0.105:3125/emailImage"
     ></script>
     <script
       type="image/jpeg"
-      src="http://192.168.0.105:3125/contactImage"
+      src="http://192.168.0.105:3125/searchImage"
     ></script>
-    <link rel="stylesheet" href="http://192.168.0.105:3125/css" />
->>>>>>> Stashed changes
   </head>
   <body>
     <div class="container">
@@ -47,10 +43,9 @@
         <button type="submit" class="click_search">Search</button>
       </div>
 
-<<<<<<< Updated upstream
       <div id="registration_form">
         <div>
-          <img src="name.jpg" class="name-img" />
+          <img src="http://192.168.0.105:3125/nameImage" class="name-img" />
           <input
             type="text"
             id="form_name"
@@ -59,46 +54,9 @@
             placeholder="Enter name"
           />
           <span class="error_form" id="name_error_message"></span>
-=======
-      <div class="formContainer">
-        <div class="User">
-          <div class="name">
-            <!-- <p>Name</p> -->
-            <img src="http://192.168.0.105:3125/nameImage" class="name-img" />
-            <input
-              type="text"
-              placeholder="Enter name"
-              id="username"
-              name="uname"
-            />
-          </div>
-          <div class="email">
-            <!-- <p>Email</p> -->
-            <img src="http://192.168.0.105:3125/emailImage" class="email-img" />
-            <input
-              type="text"
-              placeholder="Enter email id"
-              id="emailadd"
-              name="email"
-            />
-          </div>
-          <div class="contact">
-            <!-- <p>Mobile</p> -->
-            <img
-              src="http://192.168.0.105:3125/contactImage"
-              class="contact-img"
-            />
-            <input
-              type="text"
-              placeholder="Enter number"
-              id="number"
-              name="mobile"
-            />
-          </div>
->>>>>>> Stashed changes
         </div>
         <div>
-          <img src="email.jpg" name="email-img" />
+          <img src="http://192.168.0.105:3125/emailImage" name="email-img" />
           <input
             type="email"
             id="form_email"
@@ -109,7 +67,10 @@
           <span class="error_form" id="email_error_message"></span>
         </div>
         <div>
-          <img src="contact.jpg" class="contact-img" />
+          <img
+            src="http://192.168.0.105:3125/contactImage"
+            class="contact-img"
+          />
           <input
             type="text"
             id="form_contact"
@@ -131,11 +92,7 @@
 
       <div id="search_container">
         <div class="searchfield">
-<<<<<<< Updated upstream
-          <img src="search.jpg" class="search-img" />
-=======
-          <img src="http://192.168.0.105:3125/searchImage" class="name-img" />
->>>>>>> Stashed changes
+          <img src="http://192.168.0.105:3125/searchImage" class="search-img" />
           <input
             type="text"
             placeholder="Please search here"
