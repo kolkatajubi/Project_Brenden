@@ -42,18 +42,6 @@ module.exports = {
       return new Promise((resolve, reject) => {
         console.log(JSON.stringify(user));
         var errorMsg = "";
-        var userCount;
-        function getCount() {
-          return new Promise((resolve, reject) => {
-            User.find(filter, function(err, data) {
-              if (err) {
-                return reject(err);
-              }
-              userCount = data.length;
-              return resolve();
-            });
-          });
-        }
 
         //---------------------------VALIDATION STARTED HERE-------------------------------
 

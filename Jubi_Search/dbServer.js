@@ -56,11 +56,13 @@ app.get("/ajax_calls", (req, res) => {
 });
 
 app.post("/search", async (req, res) => {
-  console.log("search post called.." + JSON.stringify(req.body));
+  // console.log("search post called.." + JSON.stringify(req.body));
+  console.log("Search post called.....");
   try {
     res.json(await db.search(req.body.search));
   } catch (err) {
     console.log(err);
+    res.json(err);
   }
 });
 
@@ -69,6 +71,7 @@ app.post("/createUser", async (req, res) => {
   try {
     res.json(await db.createUser(req.body));
   } catch (err) {
-    console.log(err);
+    console.log("createUser Error...." + JSON.stringify(err));
+    res.json(err);
   }
 });

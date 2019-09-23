@@ -2,10 +2,14 @@ var ajaxapi = {
   signup: (username, email, mobile) => {
     return new Promise(async (resolve, reject) => {
       let req = { name: username, email: email, contact: mobile };
+      let start = new Date().getTime();
       let resp = await request_server(
         "http://192.168.0.105:3125/createUser",
         req
       );
+      let end = new Date().getTime();
+      console.log(end - start + "time ");
+      console.log("returning from ajax signup....");
       return resolve(resp);
     });
   },
@@ -29,6 +33,7 @@ var ajaxapi = {
 function request_server(url, data) {
   return new Promise((resolve, reject) => {
     // console.log("request server" + url);
+    console.log("Request server called.....");
     $.ajax({
       url: url,
       type: "post",
@@ -36,6 +41,7 @@ function request_server(url, data) {
       contentType: "application/json",
       data: JSON.stringify(data),
       success: resp => {
+        console.log("Request server resolved.....");
         return resolve(resp);
       },
       error: err => {

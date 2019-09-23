@@ -122,7 +122,7 @@ $(document).ready(function() {
       error_email === false &&
       error_contact === false
     ) {
-      // CREATE USER AJAX
+      //-------------- CREATE USER AJAX----------------------
       let username = $("#form_name").val();
       let email = $("#form_email").val();
       let mobile = $("#form_contact").val();
@@ -137,9 +137,14 @@ $(document).ready(function() {
         console.log("register success");
         $("#register_success").show();
         // $(".container").hide();
+        setTimeout(() => {
+          $("#registration_form").hide();
+          $("#search_container").show();
+        }, 500);
       } else {
-        $("#register_success").hide();
-        console.log("Error");
+        $("#register_success").html("User with same email and contact exists.");
+        $("#register_success").show();
+        console.log("Error" + JSON.stringify(signupStatus));
       }
     }
   });
