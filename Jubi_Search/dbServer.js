@@ -57,10 +57,16 @@ app.get("/testapi", (req, res) => {
 
 app.post("/search", async (req, res) => {
   console.log("search post called..");
-  res.json(await db.search(req.body.search));
+  try {
+    res.json(await db.search(req.body.search));
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 app.post("/createUser", async (req, res) => {
   console.log("user creation");
-  res.json(await db.createUser(req.body));
+  try {
+    res.json(await db.createUser(req.body));
+  } catch (err) {}
 });

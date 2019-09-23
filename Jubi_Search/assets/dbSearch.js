@@ -25,7 +25,9 @@ module.exports = {
           }
           console.log(filter);
           return resolve({ status: "success", data: data });
-        }).sort({ score: { $meta: "textScore" } }).limit = 5;
+        })
+          .sort({ score: { $meta: "textScore" } })
+          .limit(5);
       });
     } catch (err) {
       console.log("search function error code " + err);
