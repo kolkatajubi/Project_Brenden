@@ -4,10 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Jubi Search</title>
+    <link rel="stylesheet" href="http://192.168.0.105:3125/css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
     <script
       type="text/javascript"
+<<<<<<< HEAD
       src="http://192.168.0.117:3125/testapi"
     ></script>
     <script
@@ -31,15 +33,43 @@
       src="http://192.168.0.117:3125/contactImage"
     ></script>
     <link rel="stylesheet" href="http://192.168.0.117:3125/css" />
+=======
+      src="http://192.168.0.105:3125/action"
+    ></script>
+    <script
+      type="text/javascript"
+      src="http://192.168.0.105:3125/ajax_calls"
+    ></script>
+    <script
+      type="image/jpeg"
+      src="http://192.168.0.105:3125/backgroundImage"
+    ></script>
+    <script
+      type="image/jpeg"
+      src="http://192.168.0.105:3125/nameImage"
+    ></script>
+    <script
+      type="image/jpeg"
+      src="http://192.168.0.105:3125/contactImage"
+    ></script>
+    <script
+      type="image/jpeg"
+      src="http://192.168.0.105:3125/emailImage"
+    ></script>
+    <script
+      type="image/jpeg"
+      src="http://192.168.0.105:3125/searchImage"
+    ></script>
+>>>>>>> b32c32bbb976aec67efa8ab6458b1f3bcbae763c
   </head>
-
   <body>
     <div class="container">
       <div class="selectbutton">
-        <button type="submit" class="click1">Sign In</button>
-        <button type="submit" class="click2">Search</button>
+        <button type="submit" class="click_signup">Sign up</button>
+        <button type="submit" class="click_search">Search</button>
       </div>
 
+<<<<<<< HEAD
       <div class="formContainer">
         <div class="User">
           <div class="name">
@@ -75,16 +105,62 @@
               name="mobile"
             />
           </div>
+=======
+      <div id="registration_form">
+        <div>
+          <img src="http://192.168.0.105:3125/nameImage" class="name-img" />
+          <input
+            type="text"
+            id="form_name"
+            name=""
+            required=""
+            placeholder="Enter name"
+          />
+          <span class="error_form" id="name_error_message"></span>
+>>>>>>> b32c32bbb976aec67efa8ab6458b1f3bcbae763c
         </div>
+        <div>
+          <img src="http://192.168.0.105:3125/emailImage" name="email-img" />
+          <input
+            type="email"
+            id="form_email"
+            name=""
+            required=""
+            placeholder="Enter email"
+          />
+          <span class="error_form" id="email_error_message"></span>
+        </div>
+        <div>
+          <img
+            src="http://192.168.0.105:3125/contactImage"
+            class="contact-img"
+          />
+          <input
+            type="text"
+            id="form_contact"
+            name=""
+            required=""
+            placeholder="Enter contact"
+          />
+          <span class="error_form" id="contact_error_message"></span>
+        </div>
+        <!-- <button id="register_submit" type="submit" value="Register" name="">
+          Register
+        </button> -->
 
-        <div class="submitbutton">
-          <button type="submit" class="register_submit">Submit</button>
-        </div>
+        <button id="register_submit" class="button">
+          <span>Register</span>
+        </button>
+        <span id="register_success">Thanks Buddy you are Registered</span>
       </div>
 
-      <div class="searchContainer">
+      <div id="search_container">
         <div class="searchfield">
+<<<<<<< HEAD
           <img src="http://192.168.0.117:3125/searchImage" class="name-img" />
+=======
+          <img src="http://192.168.0.105:3125/searchImage" class="search-img" />
+>>>>>>> b32c32bbb976aec67efa8ab6458b1f3bcbae763c
           <input
             type="text"
             placeholder="Please search here"
@@ -93,10 +169,7 @@
             required
           />
         </div>
-
-        <div class="searchSubmit">
-          <button type="Submit" class="submit">Search</button>
-        </div>
+        <button id="search_submit" class="button"><span>Submit</span></button>
       </div>
     </div>
 
@@ -116,9 +189,21 @@
       </table>
     </div>
 
+<<<<<<< HEAD
     <div id="register-success">
       Thanks Buddy you are Registered !
     </div>
+=======
+    <!-- <div class = "card">
+      <div class="name">Name</div>
+      <div class="email">Email</div>
+      <div class="number">Contact</div>
+    </div> -->
+
+    <!-- <div id="register-success">
+      Thanks Buddy you are Registered !
+    </div> -->
+>>>>>>> b32c32bbb976aec67efa8ab6458b1f3bcbae763c
     <div class="errmsg"></div>
   </body>
 </html>

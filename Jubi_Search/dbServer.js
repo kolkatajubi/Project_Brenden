@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/assets/jubi_search.html");
 });
 app.get("/backgroundImage", (req, res) => {
-  res.sendFile(__dirname + "/assets/css/w.jpg");
+  res.sendFile(__dirname + "/assets/css/background.jpg");
 });
 app.get("/nameImage", (req, res) => {
   res.sendFile(__dirname + "/assets/css/name.jpg");
@@ -51,16 +51,27 @@ app.get("/css", (req, res) => {
 app.get("/action", (req, res) => {
   res.sendFile(__dirname + "/assets/action.js");
 });
-app.get("/testapi", (req, res) => {
-  res.sendFile(__dirname + "/assets/testapi.js");
+app.get("/ajax_calls", (req, res) => {
+  res.sendFile(__dirname + "/assets/ajax_calls.js");
 });
 
 app.post("/search", async (req, res) => {
-  console.log("search post called..");
-  res.json(await db.search(req.body.search));
+  // console.log("search post called.." + JSON.stringify(req.body));
+  console.log("Search post called.....");
+  try {
+    res.json(await db.search(req.body.search));
+  } catch (err) {
+    console.log(err);
+    res.json(err);
+  }
 });
 
 app.post("/createUser", async (req, res) => {
   console.log("user creation");
-  res.json(await db.createUser(req.body));
+  try {
+    res.json(await db.createUser(req.body));
+  } catch (err) {
+    console.log("createUser Error...." + JSON.stringify(err));
+    res.json(err);
+  }
 });
