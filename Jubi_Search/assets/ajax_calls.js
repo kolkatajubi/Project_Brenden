@@ -4,7 +4,7 @@ var ajaxapi = {
       let req = { name: username, email: email, contact: mobile };
       let start = new Date().getTime();
       let resp = await request_server(
-        "http://pixie.jubi.ai/jubisearch/createUser",
+        "https://pixie.jubi.ai/jubisearch/createUser",
         req
       );
       let end = new Date().getTime();
@@ -21,7 +21,7 @@ var ajaxapi = {
       if (input_data.length > 0) {
         req = { search: input_data };
         let resp = await request_server(
-          "http://pixie.jubi.ai/jubisearch/search",
+          "https://pixie.jubi.ai/jubisearch/search",
           req
         );
         return resolve(resp);

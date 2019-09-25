@@ -20,7 +20,7 @@ app.use(
 app.use(bodyparser.json());
 
 // Defining IP-Address and PORT number
-const ipaddress = "0.0.0.0";
+const ipaddress = "127.0.0.1";
 const port = 3126;
 
 // Listening to the IP-Address:PORT number
