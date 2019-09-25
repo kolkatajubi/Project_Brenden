@@ -105,21 +105,6 @@ module.exports = {
                     email: user.email,
                     contact: user.contact
                   };
-                  var userCount;
-                  //
-                  function getCount() {
-                    return new Promise((resolve, reject) => {
-                      User.find(filter, function(err, data) {
-                        if (err) {
-                          console.log("error in get Count");
-                          return reject(err);
-                        }
-                        console.log("data length" + data.length);
-                        userCount = data.length;
-                        return resolve();
-                      });
-                    });
-                  }
 
                   // console.log("Matches found ------------>" + userCount);
                   console.log("getCOUNT VALUE" + getCount());
@@ -159,36 +144,37 @@ module.exports = {
                   data: "Please enter all fields"
                 });
               }
-            })(async function() {
-              var filter = {
-                email: user.email,
-                contact: user.contact
-              };
-
-              await getCount();
-              console.log("getCOUNT VALUE" + getCount());
-              if (userCount == 0) {
-                console.log("No duplicates found....");
-                // ---------------------STORING IN DATABASE---------------------------------
-                var newUser = new User(user);
-                newUser.save(function(err, data) {
-                  if (err) {
-                    return reject({
-                      status: "error",
-                      data: "Error : Can't save your data"
-                    });
-                  }
-                  return resolve({ status: "success", data: data });
-                });
-                console.log("Data stored....");
-              } else {
-                console.log("Data with same email and contact number exist");
-                return reject({
-                  status: "error",
-                  data: "Data with same email and contact number exist"
-                });
-              }
             });
+            // (async function() {
+            //   var filter = {
+            //     email: user.email,
+            //     contact: user.contact
+            //   };
+
+            //   await getCount();
+            //   console.log("getCOUNT VALUE" + getCount());
+            //   if (userCount == 0) {
+            //     console.log("No duplicates found....");
+            //     // ---------------------STORING IN DATABASE---------------------------------
+            //     var newUser = new User(user);
+            //     newUser.save(function(err, data) {
+            //       if (err) {
+            //         return reject({
+            //           status: "error",
+            //           data: "Error : Can't save your data"
+            //         });
+            //       }
+            //       return resolve({ status: "success", data: data });
+            //     });
+            //     console.log("Data stored....");
+            //   } else {
+            //     console.log("Data with same email and contact number exist");
+            //     return reject({
+            //       status: "error",
+            //       data: "Data with same email and contact number exist"
+            //     });
+            //   }
+            // });
           } else {
             return reject({
               status: "error",
@@ -197,14 +183,17 @@ module.exports = {
           }
         } else {
           return reject({
-            status: "error",
+            status: "error in formatting",
             data: "Please enter all fields"
           });
         }
       });
     } catch (err) {
       console.log("Create User function error code " + err);
-      return reject();
+      return reject({
+        status: "error in Creating user ",
+        data: errorMsg
+      });
     }
   }
 };
