@@ -1,21 +1,40 @@
 $(document).ready(function() {
   $("#registration_form").show();
+  $("#register_success").hide();
   $(".click_signup").click(() => {
-    // $(".click_signup").show();
-    // $(".click_search").show();
+    $("table")
+      .find("tr:gt(0)")
+      .remove();
     $(".click_signup").css("background-color", "white");
     $(".click_search").css("background-color", "lightgrey");
     $("#registration_form").show();
     $("#search_container").hide();
     $("#register_success").hide();
+    $("table").hide();
+    $("#form_name").val("");
+    $("#form_email").val("");
+    $("#form_contact").val("");
+    $("#search").val("");
+
+    $("#form_name").css("border-bottom", "none");
+    $("#form_email").css("border-bottom", "none");
+    $("#form_contact").css("border-bottom", "none");
+    $("#name_error_message").hide();
+    $("#email_error_message").hide();
+    $("#contact_error_message").hide();
   });
 
   $(".click_search").click(() => {
+    $("table")
+      .find("tr:gt(0)")
+      .remove();
     $(".click_search").css("background-color", "white");
     $(".click_signup").css("background-color", "lightgrey");
     $("#registration_form").hide();
     $("#search_container").show();
     $("#register_success").hide();
+    $("table").hide();
+    $("#search").val("");
   });
 
   $("#name_error_message").hide();
@@ -25,10 +44,7 @@ $(document).ready(function() {
   var error_email = false;
   var error_contact = false;
   $("#form_name").focusout(function() {
-    // var name = $("#form_name").val();
-    // console.log(name);
     validate_name();
-    // console.log(vname);
   });
   $("#form_email").focusout(function() {
     validate_email();
@@ -109,14 +125,16 @@ $(document).ready(function() {
     }
   }
 
-  $("#register_submit").click(async () => {
+  $("#register_submit").click(async function() {
     error_name = false;
     error_email = false;
     error_contact = false;
+
+    //-------- VALIDATE ALL 3 FIELDS ON REGISTER BUTTON CLICK ---------
     validate_name();
     validate_email();
     validate_contact();
-    console.log(error_name);
+
     if (
       error_name === false &&
       error_email === false &&
@@ -127,36 +145,30 @@ $(document).ready(function() {
       let email = $("#form_email").val();
       let mobile = $("#form_contact").val();
 
-      console.log(username);
-      console.log(email);
-      console.log(mobile);
-
       let signupStatus = await ajaxapi.signup(username, email, mobile);
       console.log(signupStatus);
       if (signupStatus.status == "success") {
         console.log("register success");
         $("#register_success").show();
-        // $(".container").hide();
-        setTimeout(() => {
+        setTimeout(function() {
           $("#registration_form").hide();
           $("#search_container").show();
-        }, 500);
+        }, 1000);
       } else {
         $("#register_success").html("User with same email and contact exists.");
         $("#register_success").show();
-        console.log("Error" + JSON.stringify(signupStatus));
       }
     }
   });
 
-  $("#search_submit").click(async () => {
+  $("#search_submit").click(async function() {
     $(".errmsg").hide();
     $("#register-success").hide();
     $("table")
       .find("tr:gt(0)")
       .remove();
     let text = $("#search").val();
-    console.log(text);
+    // console.log(text);
     if (!text) {
       return;
     }
@@ -166,10 +178,10 @@ $(document).ready(function() {
       $(".tableContainer").show();
       $("table").show();
       let users = resp.data;
-      console.log(users.length + "len");
+      // console.log(users.length + "len");
       $("table").append(users);
       for (let i = 0; i < users.length; i++) {
-        console.log("appending now");
+        // console.log("appending now");
         $("table").append(
           "<tr><td>" +
             users[i].name +
