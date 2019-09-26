@@ -3,18 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta https-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Jubi Search</title>
-    <link rel="stylesheet" href="https://pixie.jubi.ai/jubisearch/css" />
+    <link rel="stylesheet" type="text/css" href="https://pixie.jubi.ai/jubisearch/css" />
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script
-      type="text/javascript"
-      src="https://pixie.jubi.ai/jubisearch/action"
-    ></script>
-    <script
-      type="text/javascript"
-      src="https://pixie.jubi.ai/jubisearch/ajax_calls"
-    ></script>
+    <script type="text/javascript" src="https://pixie.jubi.ai/jubisearch/action"></script>
+    <script type="text/javascript" src="https://pixie.jubi.ai/jubisearch/ajax_calls"></script>
     <script
       type="image/jpeg"
       src="https://pixie.jubi.ai/jubisearch/backgroundImage"
@@ -34,21 +28,18 @@
     <script
       type="image/jpeg"
       src="https://pixie.jubi.ai/jubisearch/searchImage"
-    ></script>
-  </head>
+    ></script>  
+</head>
   <body>
     <div class="container">
       <div class="selectbutton">
-        <button type="submit" class="click_signup">Sign up</button>
-        <button type="submit" class="click_search">Search</button>
+        <div class="click_signup">Sign up</div>
+        <div class="click_search">Search</div>
       </div>
 
       <div id="registration_form">
-        <div>
-          <img
-            src="https://pixie.jubi.ai/jubisearch/nameImage"
-            class="name-img"
-          />
+        <div class="user_inputs">
+          <img src="https://pixie.jubi.ai/jubisearch/nameImage" class="name-img" />
           <input
             type="text"
             id="form_name"
@@ -58,11 +49,8 @@
           />
           <span class="error_form" id="name_error_message"></span>
         </div>
-        <div>
-          <img
-            src="https://pixie.jubi.ai/jubisearch/emailImage"
-            name="email-img"
-          />
+        <div class="user_inputs">
+          <img src="https://pixie.jubi.ai/jubisearch/emailImage" name="email-img" />
           <input
             type="email"
             id="form_email"
@@ -70,13 +58,10 @@
             required=""
             placeholder="Enter email"
           />
-          <span class="error_form" id="email_error_message"></span>
+          <div class="error_form" id="email_error_message"></div>
         </div>
-        <div>
-          <img
-            src="https://pixie.jubi.ai/jubisearch/contactImage"
-            class="contact-img"
-          />
+        <div class="user_inputs">
+          <img src="https://pixie.jubi.ai/jubisearch/contactImage" class="contact-img" />
           <input
             type="text"
             id="form_contact"
@@ -84,7 +69,7 @@
             required=""
             placeholder="Enter contact"
           />
-          <span class="error_form" id="contact_error_message"></span>
+          <div class="error_form" id="contact_error_message"></div>
         </div>
         <!-- <button id="register_submit" type="submit" value="Register" name="">
           Register
@@ -98,10 +83,7 @@
 
       <div id="search_container">
         <div class="searchfield">
-          <img
-            src="https://pixie.jubi.ai/jubisearch/searchImage"
-            class="search-img"
-          />
+          <img src="https://pixie.jubi.ai/jubisearch/searchImage" class="search-img" />
           <input
             type="text"
             placeholder="Please search here"
@@ -130,11 +112,11 @@
       </table>
     </div>
 
-    <!-- <div class = "card">
+    <!-- <div class="card">
       <div class="name">Name</div>
       <div class="email">Email</div>
-      <div class="number">Contact</div>
-    </div> -->
+      <div class="number">Contact</div> -->
+    </div>
 
     <!-- <div id="register-success">
       Thanks Buddy you are Registered !
