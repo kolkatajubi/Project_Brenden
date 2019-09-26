@@ -42,6 +42,10 @@ module.exports = {
       return new Promise((resolve, reject) => {
         console.log(JSON.stringify(user));
         var errorMsg = "";
+        var filter = {
+          email: user.email,
+          contact: user.contact
+        };
         var userCount;
         function getCount() {
           return new Promise((resolve, reject) => {
@@ -75,12 +79,8 @@ module.exports = {
           if (nameValidation && emailValidation && contactValidation) {
             // -----------------------------------------------IF started------------------------------------------------
             (async () => {
-              var filter = {
-                email: user.email,
-                contact: user.contact
-              };
-
               await getCount();
+
               if (userCount == 0) {
                 console.log("No duplicates found....");
                 // ---------------------STORING IN DATABASE---------------------------------
